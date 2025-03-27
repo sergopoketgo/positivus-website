@@ -1,0 +1,58 @@
+/*Header*/
+.header {
+    padding-top: 60px;
+}
+
+.header__logo {
+}
+
+.header__nav {
+    margin-right: 20px;
+}
+
+.header_nav-item {
+}
+
+.header__nav-link {
+    padding: 10px 20px;
+}
+
+.header__button {
+    border: 1px solid var(--dark);
+    border-radius: 14px;
+    padding: 20px 35px;
+}
+
+/*Section Main*/
+.section-main {
+}
+
+.section-main__main {
+    margin: 70px 0;
+}
+
+.section-main__title {
+    font-weight: 500;
+    font-size: 3.75em;
+    max-width: 531px;
+}
+
+.section-main__subtitle {
+    max-width: 498px;
+}
+
+.section-main__button {
+    background: var(--dark);
+    border-radius: 14px;
+    padding: 20px 35px;
+}
+
+.section-main__image {
+}
+
+.section-main__logotypes {
+}
+
+.section-main__logotypes-item {
+    filter: grayscale(1);
+}

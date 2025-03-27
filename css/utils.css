@@ -1,0 +1,47 @@
+/*TEXT BEGIN*/
+.font-grotesk {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.text-black {
+    color: var(--black);
+}
+
+.text-white {
+    color: var(--white);
+}
+
+.text-l {
+    font-size: 1.25em;
+    line-height: 1.4;
+}
+/*TEXT END*/
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-start {
+    align-items: start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.container {
+    padding-left: calc(50% - 668px);
+    padding-right: calc(50% - 668px);
+}
+
+.mb-35 {
+    margin-bottom: 35px;
+}
