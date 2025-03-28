@@ -25,6 +25,7 @@
 
 /*Section Main*/
 .section-main {
+    margin-bottom: 140px;
 }
 
 .section-main__main {
@@ -55,4 +56,44 @@
 
 .section-main__logotypes-item {
     filter: grayscale(1);
+}
+
+/*Section Services*/
+.section-services__title {
+    font-weight: 500;
+    font-size: 2.5em;
+    margin-right: 40px;
+}
+
+.section-services__subtitle {
+    font-size: 1.125em;
+    max-width: 580px;
+}
+
+.section-services__cards {
+    gap: 10px;
+}
+
+.section-services__card {
+    border: 1px solid var(--dark);
+    border-radius: 45px;
+    padding: 50px;
+    box-shadow: 0 5px 0 0 var(--dark);
+    background: var(--grey);
+}
+
+.section-services__card-block {
+    margin-right: 69px;
+}
+
+.section-services__card-title {
+    font-weight: 500;
+    font-size: 1.875em;
+    margin-bottom: 93px
+}
+
+.section-services__card-link::before {
+    content: url("../img/svg/arrow-black.svg");
+    padding-right: 15px; /*margin-right?*/
+    line-height: 1;
 }

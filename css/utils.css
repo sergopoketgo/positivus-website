@@ -15,6 +15,13 @@
     font-size: 1.25em;
     line-height: 1.4;
 }
+
+.green-mark {
+    background: var(--green);
+    border-radius: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
 /*TEXT END*/
 
 .flex {
@@ -44,4 +51,8 @@
 
 .mb-35 {
     margin-bottom: 35px;
+}
+
+.mb-80 {
+    margin-bottom: 80px;
 }
