@@ -44,9 +44,13 @@
     align-items: center;
 }
 
+.wrap {
+    flex-wrap: wrap;
+}
+
 .container {
-    padding-left: calc(50% - 668px);
-    padding-right: calc(50% - 668px);
+    padding-left: calc(50% - 620px);
+    padding-right: calc(50% - 620px);
 }
 
 .mb-35 {

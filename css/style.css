@@ -71,10 +71,12 @@
 }
 
 .section-services__cards {
-    gap: 10px;
+    gap: 40px;
 }
 
 .section-services__card {
+    justify-content: space-between;
+    flex-basis: 600px;
     border: 1px solid var(--dark);
     border-radius: 45px;
     padding: 50px;
@@ -83,7 +85,7 @@
 }
 
 .section-services__card-block {
-    margin-right: 69px;
+    /*margin-right: 69px;*/
 }
 
 .section-services__card-title {
