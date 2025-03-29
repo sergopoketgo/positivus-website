@@ -16,11 +16,22 @@
     line-height: 1.4;
 }
 
-.green-mark {
-    background: var(--green);
+.text-title {
+    font-weight: 500;
+    font-size: 1.875em;
+}
+
+.text-subtitle {
+    font-size: 1.125em;
+}
+
+.highlight {
     border-radius: 7px;
     padding-left: 7px;
     padding-right: 7px;
+}
+
+.white-mark {
 }
 /*TEXT END*/
 
@@ -59,4 +70,33 @@
 
 .mb-80 {
     margin-bottom: 80px;
+}
+
+.bg-green {
+    background: var(--green);
+}
+
+.bg-grey {
+    background: var(--grey);
+}
+
+.bg-dark {
+    background: var(--dark);
+}
+
+.bg-white {
+    background: var(--white);
+}
+
+.border-dark {
+    border: 1px solid var(--dark);
+}
+
+.br-45 {
+    border-radius: 45px;
+}
+
+.button {
+    border-radius: 14px;
+    padding: 20px 35px;
 }
