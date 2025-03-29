@@ -16,6 +16,11 @@
     line-height: 1.4;
 }
 
+.text-title-section {
+    font-weight: 500;
+    font-size: 2.5em;
+}
+
 .text-title {
     font-weight: 500;
     font-size: 1.875em;
@@ -29,9 +34,6 @@
     border-radius: 7px;
     padding-left: 7px;
     padding-right: 7px;
-}
-
-.white-mark {
 }
 /*TEXT END*/
 
@@ -68,8 +70,8 @@
     margin-bottom: 35px;
 }
 
-.mb-80 {
-    margin-bottom: 80px;
+.mb-100 {
+    margin-bottom: 100px;
 }
 
 .bg-green {
@@ -99,4 +101,17 @@
 .button {
     border-radius: 14px;
     padding: 20px 35px;
+}
+
+.max-width-580 {
+    max-width: 580px;
+}
+
+.gap-40 {
+    gap: 40px;
+}
+
+.heading {
+    gap: 40px;
+    margin-bottom: 80px;
 }

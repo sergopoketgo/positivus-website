@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/utils.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-grotesk">
-    <header class="header flex justify-between items-center container">
+<body class="font-grotesk container">
+    <header class="header flex justify-between items-center">
         <a href="#" class="header__logo">
             <img src="img/svg/logo.svg" alt="Positivus Logo">
         </a>
@@ -39,11 +39,11 @@
         </div>
     </header>
     <main>
-        <section class="section-main container">
+        <section class="section-main">
             <div class="section-main__main flex justify-between">
-                <aside class="flex column items-start">
-                    <h1 class="section-main__title text-black mb-35">Navigating the digital landscape for success</h1>
-                    <p class="section-main__subtitle text-black text-l mb-35">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
+                <aside class="section-main__main-block flex column items-start">
+                    <h1 class="section-main__title text-black">Navigating the digital landscape for success</h1>
+                    <p class="section-main__subtitle text-black text-l">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
                     <a href="#" class="button bg-dark text-white text-l">Book a consultation</a>
                 </aside>
                 <img src="img/svg/section-main__image.svg" alt="Amazing Image" class="section-main__image">
@@ -132,12 +132,12 @@
                 </li>
             </ul>
         </section>
-        <section class="section-services container">
-            <div class="flex mb-80">
-                <h2 class="section-services__title text-black highlight bg-green">Services</h2>
-                <p class="section-services__subtitle text-subtitle text-black">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
+        <section class="section-services mb-100">
+            <div class="heading flex">
+                <h2 class="text-title-section text-black highlight bg-green">Services</h2>
+                <p class="text-subtitle text-black max-width-580">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
             </div>
-            <div class="section-services__cards flex wrap">
+            <div class="section-services__cards flex wrap mb-100">
                 <a href="#" class="section-services__card bg-grey flex items-center justify-between border-dark br-45">
                     <div class="flex column">
                         <h3 class="section-services__card-title text-title flex column items-start">
@@ -256,23 +256,28 @@
                 <img src="img/svg/section-services__cta-image.svg" alt="Black Ball Entity In Space Illustration" class="section-services__cta-image">
             </div>
         </section>
+        <section class="section-case-studies">
+            <div class="heading flex">
+                <h2 class="text-title-section text-black highlight bg-green">Case Studies</h2>
+                <p class="text-subtitle text-black max-width-580">Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies</p>
+            </div>
+            <div class="section-case-studies__block flex br-45 bg-dark">
+                <div class="section-case-studies__block-item flex column items-start">
+                    <p class="section-case-studies__block-item-text text-subtitle text-white">For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% increase in website traffic and a 25% increase in sales.</p>
+                    <a href="#" class="section-case-studies__block-item-link text-l flex items-center">Learn more</a>
+                </div>
+                <div class="section-case-studies__block-vertical-line bg-white"></div>
+                <div class="section-case-studies__block-item">
+                    <p class="section-case-studies__block-item-text text-subtitle text-white">For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.</p>
+                    <a href="#" class="section-case-studies__block-item-link text-l flex items-center">Learn more</a>
+                </div>
+                <div class="section-case-studies__block-vertical-line bg-white"></div>
+                <div class="section-case-studies__block-item">
+                    <p class="section-case-studies__block-item-text text-subtitle text-white">For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.</p>
+                    <a href="#" class="section-case-studies__block-item-link text-l flex items-center">Learn more</a>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
-
-<!--
-Стоїть лі сохронять всі свг'шки на пк і підключать через <img>, чи краще чистий свг вставлять?
-rem & em
-_ & -- : mb-80 -> mb--80 / mb_80
-
-Питання по найменуванні классів:
-section-services__cards, може краще назвать типу section-services__block, наприклад? Тоді в нього буде
-  section-services__block-item?
-section-services__card-title text-title -> section-services__card-heading? Тоді воно всерівно буде тегом <h3>?
-mb-80 - стоіть лі так робить? Написав просто mb-80, замість того щоб придумувать окремий клас для заголовочного дів'а
-section-services__card-link & section-services__card-link_arrow-white, section-services__card-link_arrow-black ???
-
-
-Recommendations From Me To Next Time:
-class name: ...image -> ...illustration. For Example: section-services__cta-illustration
--->
