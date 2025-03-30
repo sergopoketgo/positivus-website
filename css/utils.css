@@ -16,6 +16,11 @@
     line-height: 1.4;
 }
 
+.text-xl {
+    font-weight: 500;
+    font-size: 3.75em;
+}
+
 .text-title-section {
     font-weight: 500;
     font-size: 2.5em;
@@ -74,6 +79,14 @@
     margin-bottom: 100px;
 }
 
+.mb-140 {
+    margin-bottom: 140px;
+}
+
+.bg-none {
+    background: none;
+}
+
 .bg-green {
     background: var(--green);
 }
@@ -114,4 +127,8 @@
 .heading {
     gap: 40px;
     margin-bottom: 80px;
+}
+
+.box-shadow {
+    box-shadow: 0 5px 0 0 var(--dark);
 }

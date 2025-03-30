@@ -31,8 +31,6 @@
 }
 
 .section-main__title {
-    font-weight: 500;
-    font-size: 3.75em;
     max-width: 531px;
 }
 
@@ -51,6 +49,10 @@
 }
 
 /*Section Services*/
+.section-services {
+    margin-bottom: calc(100px + 23px);
+}
+
 .section-services__cards {
     gap: 40px;
 }
@@ -58,7 +60,6 @@
 .section-services__card {
     flex-basis: 600px;
     padding: 50px;
-    box-shadow: 0 5px 0 0 var(--dark);
 }
 
 .section-services__card-title {
@@ -82,6 +83,7 @@
 .section-services__cta {
     position: relative;
     padding: 60px;
+    margin-top: 23px;
 }
 
 .section-services__cta-block {
@@ -129,4 +131,48 @@
 .section-case-studies__block-vertical-line {
     width: 2px;
     height: 186px;
+}
+
+/*Our Working Process*/
+.section-process {
+}
+
+.section-process__subtitle {
+    max-width: 292px;
+}
+
+.section-process__accordion {
+    gap: 30px;
+}
+
+.section-process__accordion-toggle {
+}
+
+.section-process__accordion-toggle-button {
+    padding: 41px 60px;
+}
+
+.section-process__accordion-toggle-heading {
+    gap: 25px;
+}
+
+.section-process__accordion-toggle_active {
+}
+
+.section-process__accordion-toggle_active-button {
+    padding: 41px 60px 30px 60px;
+}
+
+.section-process__accordion-toggle_active-content {
+    padding: 0 60px 0 60px;
+}
+
+.section-process__accordion-toggle_active-content-separate-line {
+    background: #000;
+    height: 2px;
+    margin-bottom: 30px;
+}
+
+.section-process__accordion-toggle_active-content-text {
+    padding-bottom: calc(14px + 41px);
 }
