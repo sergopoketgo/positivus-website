@@ -18,10 +18,6 @@
 }
 
 /*Section Main*/
-.section-main {
-    margin-bottom: 140px;
-}
-
 .section-main__main {
     margin: 70px 0;
 }
@@ -51,10 +47,6 @@
 /*Section Services*/
 .section-services {
     margin-bottom: calc(100px + 23px);
-}
-
-.section-services__cards {
-    gap: 40px;
 }
 
 .section-services__card {
@@ -168,11 +160,53 @@
 }
 
 .section-process__accordion-toggle_active-content-separate-line {
-    background: #000;
-    height: 2px;
     margin-bottom: 30px;
 }
 
 .section-process__accordion-toggle_active-content-text {
     padding-bottom: calc(14px + 41px);
+}
+
+/*Section Team*/
+.section-team {
+}
+
+.section-team__subtitle {
+    max-width: 473px;
+}
+
+.section-team__card {
+    flex-basis: 387px;
+    padding: 40px 35px;
+    gap: 27px;
+}
+
+.section-team__card-person {
+    position: relative;
+    gap: 20px;
+}
+
+.section-team__card-person-picture {
+    width: 102px;
+    height: 102px;
+}
+
+.section-team__card-person-name {
+    font-weight: 500;
+    font-size: 1.25em;
+}
+
+.section-team__card-person-social-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.section-team__card-person-about {
+    max-width: 317px;
+}
+
+.section-team__button {
+    border-radius: 14px;
+    padding: 20px 76px;
 }
