@@ -11,6 +11,10 @@
     color: var(--white);
 }
 
+.text-green {
+    color: var(--green);
+}
+
 .text-l {
     font-size: 1.25em;
     line-height: 1.4;
@@ -33,6 +37,11 @@
 
 .text-subtitle {
     font-size: 1.125em;
+}
+
+.text-name {
+    font-weight: 500;
+    font-size: 1.25em;
 }
 
 .highlight {

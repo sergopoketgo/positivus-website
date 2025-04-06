@@ -191,11 +191,6 @@
     height: 102px;
 }
 
-.section-team__card-person-name {
-    font-weight: 500;
-    font-size: 1.25em;
-}
-
 .section-team__card-person-social-icon {
     position: absolute;
     top: 0;
@@ -209,4 +204,70 @@
 .section-team__button {
     border-radius: 14px;
     padding: 20px 76px;
+}
+
+/*Section Testimonials*/
+.section-testimonials {
+}
+
+.section-testimonials__swiper {
+    overflow: hidden;
+    padding-top: 84px;
+    padding-bottom: 58px;
+}
+
+.section-testimonials__swiper-slides {
+    width: 1918px;
+    margin-bottom: 124px;
+}
+
+.section-testimonials__swiper-slide {
+}
+
+.section-testimonials__swiper-slide-bubble {
+    position: relative;
+    border: 1px solid var(--green);
+    padding: 48px 52px;
+    margin-bottom: 48px;
+}
+
+.section-testimonials__swiper-slide-bubble:before,
+.section-testimonials__swiper-slide-bubble:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50px;
+    border-width: 34px 32px 0;
+    border-style: solid;
+    border-color: var(--green) transparent;
+}
+
+.section-testimonials__swiper-slide-bubble:after {
+    border-color: var(--dark) transparent;
+    top: calc(100% - 2px);
+}
+
+.section-testimonials__swiper-slide-author {
+    margin-left: 80px;
+}
+
+.section-testimonials__swiper-slide-bubble-text {
+    max-width: 502px;
+}
+
+.section-testimonials__swiper-nav {  /*Swiper Nav*/
+    gap: 189px;
+}
+
+.section-testimonials__swiper-pagination-bullets {
+    gap: 19px;
+}
+
+.section-testimonials__swiper-pagination-bullet {
+    width: 14px;
+}
+
+.section-testimonials__swiper-pagination-button:hover,
+.section-testimonials__swiper-pagination-bullet:hover {
+    cursor: pointer;
 }
