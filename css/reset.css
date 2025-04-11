@@ -5,18 +5,34 @@
     box-sizing: border-box;
 }
 
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
 html,
 body {
     height: 100%;
     width: 100%;
-    /*line-height: 1.2;*/
-    /*font-size: 14px;*/
+    font-size: 100%;
+    line-height: normal;
+    font-size: 16px;
 }
 
 input,
 button,
 textarea {
     outline: none;
+}
+
+input, textarea, select, button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 input::-ms-clear {

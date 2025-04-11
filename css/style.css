@@ -186,11 +186,6 @@
     gap: 20px;
 }
 
-.section-team__card-person-picture {
-    width: 102px;
-    height: 102px;
-}
-
 .section-team__card-person-social-icon {
     position: absolute;
     top: 0;
@@ -261,10 +256,6 @@
 
 .section-testimonials__swiper-pagination-bullets {
     gap: 19px;
-}
-
-.section-testimonials__swiper-pagination-bullet {
-    width: 14px;
 }
 
 .section-testimonials__swiper-pagination-button:hover,
