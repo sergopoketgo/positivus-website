@@ -41,7 +41,7 @@
     <main>
         <section class="section-main mb-140">
             <div class="section-main__main flex justify-between">
-                <div class="section-main__main-block flex column items-start">
+                <div class="flex column items-start gap-35">
                     <h1 class="section-main__title text-xl">Navigating the digital landscape for success</h1>
                     <p class="section-main__subtitle text-l">Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
                     <a href="#" class="button bg-dark text-white text-l">Book a consultation</a>
@@ -286,7 +286,7 @@
             <div class="section-process__accordion flex column">
                 <div class="section-process__accordion-toggle card section-process__accordion-toggle_active flex column bg-green">
                     <button class="section-process__accordion-toggle_active-button flex justify-between items-center bg-none br-45">
-                        <span class="section-process__accordion-toggle-heading flex items-center">
+                        <span class="flex items-center gap-25">
                             <span class="text-xl">01</span>
                             <span class="text-title">Consultation</span>
                         </span>
@@ -300,7 +300,7 @@
                 </div>
                 <div class="section-process__accordion-toggle card flex column bg-grey">
                     <button class="section-process__accordion-toggle-button flex justify-between items-center bg-none br-45">
-                        <span class="section-process__accordion-toggle-heading flex items-center">
+                        <span class="flex items-center gap-25">
                             <span class="text-xl">02</span>
                             <span class="text-title">Research and Strategy Development</span>
                         </span>
@@ -310,7 +310,7 @@
                 </div>
                 <div class="section-process__accordion-toggle card flex column bg-grey">
                     <button class="section-process__accordion-toggle-button flex justify-between items-center bg-none br-45">
-                        <span class="section-process__accordion-toggle-heading flex items-center">
+                        <span class="flex items-center gap-25">
                             <span class="text-xl">03</span>
                             <span class="text-title">Implementation</span>
                         </span>
@@ -320,7 +320,7 @@
                 </div>
                 <div class="section-process__accordion-toggle card flex column bg-grey">
                     <button class="section-process__accordion-toggle-button flex justify-between items-center bg-none br-45">
-                        <span class="section-process__accordion-toggle-heading flex items-center">
+                        <span class="flex items-center gap-25">
                             <span class="text-xl">04</span>
                             <span class="text-title">Monitoring and Optimization</span>
                         </span>
@@ -330,7 +330,7 @@
                 </div>
                 <div class="section-process__accordion-toggle card flex column bg-grey">
                     <button class="section-process__accordion-toggle-button flex justify-between items-center bg-none br-45">
-                        <span class="section-process__accordion-toggle-heading flex items-center">
+                        <span class="flex items-center gap-25">
                             <span class="text-xl">05</span>
                             <span class="text-title">Reporting and Communication</span>
                         </span>
@@ -340,7 +340,7 @@
                 </div>
                 <div class="section-process__accordion-toggle card flex column bg-grey">
                     <button class="section-process__accordion-toggle-button flex justify-between items-center bg-none br-45">
-                        <span class="section-process__accordion-toggle-heading flex items-center">
+                        <span class="flex items-center gap-25">
                             <span class="text-xl">06</span>
                             <span class="text-title">Continual Improvement</span>
                         </span>
@@ -429,11 +429,11 @@
                     <p class="section-team__card-person-about text-subtitle">2+ years of experience in writing and editing<br>Skilled in creating compelling, SEO-optimized content for various industries</p>
                 </div>
                 <div class="flex justify-end w-100">
-                    <a href="#" class="section-team__button bg-dark text-white text-l">See all team</a>
+                    <a href="#" class="section-team__button br-14 bg-dark text-white text-l">See all team</a>
                 </div>
             </div>
         </section>
-        <section class="section-testimonials">
+        <section class="section-testimonials mb-140">
             <div class="heading flex">
                 <h2 class="text-title-section highlight bg-green">Testimonials</h2>
                 <p class="section-team__subtitle text-subtitle">Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services</p>
@@ -485,6 +485,41 @@
                         <path d="M2 10.5C1.17157 10.5 0.5 11.1716 0.5 12C0.5 12.8284 1.17157 13.5 2 13.5L2 10.5ZM23.0607 13.0607C23.6464 12.4749 23.6464 11.5251 23.0607 10.9393L13.5147 1.3934C12.9289 0.807613 11.9792 0.807613 11.3934 1.3934C10.8076 1.97919 10.8076 2.92893 11.3934 3.51472L19.8787 12L11.3934 20.4853C10.8076 21.0711 10.8076 22.0208 11.3934 22.6066C11.9792 23.1924 12.9289 23.1924 13.5147 22.6066L23.0607 13.0607ZM2 13.5L22 13.5L22 10.5L2 10.5L2 13.5Z" fill="white" />
                     </svg>
                 </nav>
+            </div>
+        </section>
+        <section class="section-contact">
+            <div class="heading flex">
+                <h2 class="text-title-section highlight bg-green">Contact Us</h2>
+                <p class="section-contact__subtitle text-subtitle">Connect with Us: Let's Discuss Your Digital Marketing Needs</p>
+            </div>
+            <div class="section-contact__block br-45">
+                <form action="#" class="section-contact__form flex column">
+                    <div class="flex gap-35">
+                        <label for="hi" class="flex items-center">
+                            <input type="radio" name="action" id="hi" class="section-contact__form-radio-button-input" value="hi" checked><span class="section-contact__form-radio-button-text flex items-center text-subtitle">Say Hi</span>
+                        </label>
+                        <label for="quote" class="flex items-center">
+                            <input type="radio" name="action" id="quote" class="section-contact__form-radio-button-input" value="quote"><span class="section-contact__form-radio-button-text flex text-subtitle">Get a Quote</span>
+                        </label>
+                    </div>
+
+                    <div class="flex column gap-25">
+                        <div class="flex column">
+                            <label for="name" class="section-contact__form-label">Name</label>
+                            <input type="text" name="name" id="name" class="section-contact__form-input br-14 text-subtitle" placeholder="Name">
+                        </div>
+                        <div class="flex column">
+                            <label for="email" class="section-contact__form-label">Email*</label>
+                            <input type="email" name="email" id="email" class="section-contact__form-input br-14 text-subtitle" placeholder="Email" required>
+                        </div>
+                        <div class="flex column">
+                            <label for="message" class="section-contact__form-label">Message*</label>
+                            <textarea name="message" id="message" class="section-contact__form-input section-contact__form-input_message br-14 text-subtitle" placeholder="Message" required></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button bg-dark text-white text-l">Send Message</button>
+                </form>
             </div>
         </section>
     </main>

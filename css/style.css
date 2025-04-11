@@ -144,10 +144,6 @@
     padding: 41px 60px;
 }
 
-.section-process__accordion-toggle-heading {
-    gap: 25px;
-}
-
 .section-process__accordion-toggle_active {
 }
 
@@ -197,7 +193,6 @@
 }
 
 .section-team__button {
-    border-radius: 14px;
     padding: 20px 76px;
 }
 
@@ -261,4 +256,75 @@
 .section-testimonials__swiper-pagination-button:hover,
 .section-testimonials__swiper-pagination-bullet:hover {
     cursor: pointer;
+}
+
+/*Section Contact Us*/
+.section-contact {
+
+}
+
+.section-contact__subtitle {
+    max-width: 323px;
+}
+
+.section-contact__block {
+    padding: 60px 100px 80px 100px;
+    height: 773px;
+    background: var(--grey) url("../img/svg/section-contact__block-Illustration.svg") calc(100% + 325px) 50% no-repeat;
+}
+
+.section-contact__form {  /*Forms*/
+    gap: 40px;
+    width: 556px;
+}
+
+.section-contact__form-radio-button-input {  /*Forms Radio Buttons BEGIN*/
+    display: none;
+}
+
+.section-contact__form-radio-button-text {
+    position: relative;
+    gap: 14px;
+    cursor: pointer;
+}
+
+.section-contact__form-radio-button-text::before {
+    content: "";
+    width: 28px;
+    height: 28px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.section-contact__form-radio-button-text::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--green);
+    opacity: 0;
+    transition: .2s;
+}
+
+.section-contact__form-radio-button-input:checked + .section-contact__form-radio-button-text::after {
+    opacity: 1;
+}  /*Forms Radio Buttons END*/
+
+.section-contact__form-label {
+    line-height: 1.75;
+    margin-bottom: 5px;
+}
+
+.section-contact__form-input {
+    border: 1px solid var(--black);
+    padding: 18px 30px;
+    resize: none;
+}
+
+.section-contact__form-input_message {
+    min-height: 190px;
 }

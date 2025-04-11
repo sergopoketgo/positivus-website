@@ -16,32 +16,32 @@
 }
 
 .text-l {
-    font-size: 1.25em;
+    font-size: 1.25rem;
     line-height: 1.4;
 }
 
 .text-xl {
     font-weight: 500;
-    font-size: 3.75em;
+    font-size: 3.75rem;
 }
 
 .text-title-section {
     font-weight: 500;
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
 .text-title {
     font-weight: 500;
-    font-size: 1.875em;
+    font-size: 1.875rem;
 }
 
 .text-subtitle {
-    font-size: 1.125em;
+    font-size: 1.125rem;
 }
 
 .text-name {
     font-weight: 500;
-    font-size: 1.25em;
+    font-size: 1.25rem;
 }
 
 .highlight {
@@ -120,6 +120,10 @@
     border: 1px solid var(--dark);
 }
 
+.br-14 {
+    border-radius: 14px;
+}
+
 .br-45 {
     border-radius: 45px;
 }
@@ -158,4 +162,12 @@
 
 .w-100 {
     width: 100%;
+}
+
+.gap-35 {
+    gap: 35px;
+}
+
+.gap-25 {
+    gap: 25px;
 }
