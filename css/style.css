@@ -269,13 +269,12 @@
 
 .section-contact__block {
     padding: 60px 100px 80px 100px;
-    height: 773px;
     background: var(--grey) url("../img/svg/section-contact__block-Illustration.svg") calc(100% + 325px) 50% no-repeat;
 }
 
 .section-contact__form {  /*Forms*/
     gap: 40px;
-    width: 556px;
+    max-width: 556px;
 }
 
 .section-contact__form-radio-button-input {  /*Forms Radio Buttons BEGIN*/
@@ -322,9 +321,57 @@
 .section-contact__form-input {
     border: 1px solid var(--black);
     padding: 18px 30px;
-    resize: none;
 }
 
 .section-contact__form-input_message {
     min-height: 190px;
+    resize: none;
+}
+
+/*Footer*/
+.footer {
+    border-radius: 45px 45px 0 0;
+    padding: 55px 60px 50px 60px;
+    gap: 50px;
+}
+
+.footer__nav {
+    margin-bottom: 66px;
+}
+
+.footer__nav-list {
+    gap: 40px;
+}
+
+.footer__nav-icons {
+    gap: 20px;
+}
+
+.footer__contact-title {
+    margin-bottom: 27px;
+}
+
+.footer__contact-info {
+    gap: 20px;
+}
+
+.footer__subscription {
+    gap: 20px;
+    padding: 58px 40px;
+    background: #292a32;
+}
+
+.footer__subscription-input {
+    border: 1px solid var(--white);
+    padding: 22px 29px;
+    background: none;
+}
+
+.footer__subscription-input::placeholder {
+    color: var(--white);
+}
+
+.footer__legal {
+    gap: 40px;
+    line-height: 1.56;
 }

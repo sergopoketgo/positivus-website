@@ -49,6 +49,11 @@
     padding-left: 7px;
     padding-right: 7px;
 }
+
+.underline {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+}
 /*TEXT END*/
 
 .flex {
@@ -155,8 +160,13 @@
     box-shadow: 0 5px 0 0 var(--dark);
 }
 
-.hr {
+.hr_black {
     background: var(--black);
+    height: 1px;
+}
+
+.hr_white {
+    background: var(--white);
     height: 1px;
 }
 
