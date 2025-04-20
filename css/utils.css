@@ -138,12 +138,19 @@
     padding: 20px 35px;
 }
 
-.button-hover {
+.button-hover,
+.button-hover_min {
     transition: var(--default-trans);
 }
 
 .button-hover:hover {
     transform: scale(1.1, 1.05);
+    color: var(--black);
+    background-color: var(--green);
+}
+
+.button-hover_min:hover {
+    transform: scale(1.05, 1.02);
     color: var(--black);
     background-color: var(--green);
 }
