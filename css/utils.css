@@ -138,6 +138,16 @@
     padding: 20px 35px;
 }
 
+.button-hover {
+    transition: var(--default-trans);
+}
+
+.button-hover:hover {
+    transform: scale(1.1, 1.05);
+    color: var(--black);
+    background-color: var(--green);
+}
+
 .max-width-580 {
     max-width: 580px;
 }
@@ -180,4 +190,8 @@
 
 .gap-25 {
     gap: 25px;
+}
+
+.transition {
+    transition: var(--default-trans);
 }
