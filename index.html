@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Positivus Website Layout Coding">
+    <meta name="keywords" content="positivus, coding, html">
+    <meta name="author" content="sergopoketgo">
     <title>Positivus</title>
+    <link rel="apple-touch-icon" href="img/ico/apple-touch-icon.ico" sizes="180x180" type="image/x-icon">
+    <link rel="icon" href="img/ico/icon-16.ico" sizes="16x16" type="image/x-icon">
+    <link rel="icon" href="img/ico/icon-32.ico" sizes="32x32" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/utils.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="font-grotesk container" style="margin-top: 50px;">
+<body class="font-grotesk container">
     <header class="header flex justify-between items-center bg-white">
-        <a href="#" class="header__logo transition flex">
+        <a href="/positivus-website/" class="header__logo transition flex">
             <img src="img/svg/logo.svg" width="220" height="56" alt="Positivus Logo" loading="lazy">
         </a>
         <div class="flex items-center">
@@ -507,11 +513,13 @@
             <div class="section-contact__block br-45">
                 <form action="#" class="section-contact__form flex column">
                     <div class="flex gap-35">
-                        <label for="hi" class="flex items-center">
-                            <input type="radio" name="action" id="hi" class="section-contact__form-radio-button-input" value="hi" checked><span class="section-contact__form-radio-button-text flex items-center text-subtitle">Say Hi</span>
+                        <label for="hi" class="section-contact__form-radio-button flex items-center">
+                            <input type="radio" name="action" id="hi" value="hi" class="section-contact__form-radio-button-input" checked>
+                            <span class="section-contact__form-radio-button-radio"></span><span class="text-subtitle">Say Hi</span>
                         </label>
-                        <label for="quote" class="flex items-center">
-                            <input type="radio" name="action" id="quote" class="section-contact__form-radio-button-input" value="quote"><span class="section-contact__form-radio-button-text flex items-center text-subtitle">Get a Quote</span>
+                        <label for="quote" class="section-contact__form-radio-button flex items-center">
+                            <input type="radio" name="action" id="quote" value="quote" class="section-contact__form-radio-button-input">
+                            <span class="section-contact__form-radio-button-radio"></span><span class="text-subtitle">Get a Quote</span>
                         </label>
                     </div>
 
@@ -538,7 +546,7 @@
     <footer class="footer flex column bg-dark">
         <div class="flex column">
             <nav class="footer__nav flex justify-between items-center">
-                <a href="#" class="footer__nav-logo transition flex">
+                <a href="/positivus-website/" class="transition flex">
                     <img src="img/svg/logo_alt.svg" width="180" height="29" alt="Positivus Logo" loading="lazy">
                 </a>
                 <ul class="footer__nav-list flex">
@@ -596,9 +604,7 @@
                     </div>
                 </div>
                 <form action="#" class="footer__subscription flex br-14">
-                    <label for="subscription">
-                        <input type="email" name="subscription" id="subscription" class="footer__subscription-input br-14 text-subtitle text-white" placeholder="Email">
-                    </label>
+                    <input type="email" name="subscription" id="subscription" class="footer__subscription-input br-14 text-subtitle text-white" placeholder="Email">
 
                     <button type="submit" class="footer__subscription-button transition button bg-green text-l">Subscribe to news</button>
                 </form>

@@ -85,8 +85,11 @@
 }
 
 .container {
-    padding-left: calc(50% - 621px);
-    padding-right: calc(50% - 621px);
+    max-width: 1272px;
+    margin: 0 auto;
+    padding: 0 15px;
+    /*padding-left: calc(50% - 621px);*/
+    /*padding-right: calc(50% - 621px);*/
 }
 
 .mb-35 {
@@ -99,10 +102,6 @@
 
 .mb-140 {
     margin-bottom: 140px;
-}
-
-.bg-none {
-    background: none;
 }
 
 .bg-green {
@@ -178,8 +177,7 @@
 }
 
 .hr_black {
-    background: var(--black);
-    height: 1px;
+    border: 1px solid var(--black);
 }
 
 .hr_white {
