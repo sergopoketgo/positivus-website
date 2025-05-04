@@ -64,7 +64,7 @@
 .section-services__card {
     flex-basis: 600px;
     padding: 50px;
-    transition: .3s;
+    transition: var(--default-trans);
 }
 
 .section-services__card:hover {
@@ -156,35 +156,69 @@
     max-width: 292px;
 }
 
-.section-process__accordion {
+.section-process__accordion {  /*Accordion BEGIN*/
     gap: 30px;
 }
 
-.section-process__accordion-toggle {
-}
-
-.section-process__accordion-toggle-button {
+.section-process__accordion-item {
+    background: var(--grey);
     padding: 41px 60px;
+    transition: var(--default-trans);
 }
 
-.section-process__accordion-toggle_active {
+.section-process__accordion-item-header {
 }
 
-.section-process__accordion-toggle_active-button {
-    padding: 41px 60px 30px 60px;
+.section-process__accordion-item-header-icon {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid var(--black);
+    justify-content: center;
 }
 
-.section-process__accordion-toggle_active-content {
-    padding: 0 60px 0 60px;
+.section-process__accordion-item-header-icon::before,
+.section-process__accordion-item-header-icon::after {
+    content: "";
+    position: absolute;
+    background: var(--black);
 }
 
-.section-process__accordion-toggle_active-content-separate-line {
-    margin-bottom: 30px;
+.section-process__accordion-item-header-icon::before {
+    width: 18px;
+    height: 6px;
+    transition: var(--default-trans);
 }
 
-.section-process__accordion-toggle_active-content-text {
-    padding-bottom: calc(14px + 41px);
+.section-process__accordion-item-header-icon::after {
+    width: 6px;
+    height: 18px;
+    transition: var(--default-trans);
 }
+
+.section-process__accordion-item.active .section-process__accordion-item-header-icon::before {
+    transform: rotate(180deg);
+}
+
+.section-process__accordion-item.active .section-process__accordion-item-header-icon::after {
+    transform: rotate(270deg);
+}
+
+.section-process__accordion-item-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: var(--default-trans);
+}
+
+.section-process__accordion-item-content-hr {
+    margin: 30px 0;
+}
+
+.section-process__accordion-item.active {
+    background: var(--green);
+    padding: 41px 60px calc(41px + 14px);
+}  /*Accordion END*/
 
 /*Section Team*/
 .section-team {
