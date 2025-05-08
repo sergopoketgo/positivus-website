@@ -166,7 +166,8 @@
     transition: var(--default-trans);
 }
 
-.section-process__accordion-item-header {
+.section-process__accordion-item-header:hover {
+    cursor: pointer;
 }
 
 .section-process__accordion-item-header-icon {
