@@ -258,29 +258,31 @@
 .section-testimonials {
 }
 
-.section-testimonials__swiper {
+.section-testimonials__slider {
     overflow: hidden;
     padding-top: 84px;
     padding-bottom: 58px;
+    gap: 124px;
 }
 
-.section-testimonials__swiper-slides {
-    width: 1918px;
-    margin-bottom: 124px;
+.section-testimonials__slider-track {
+    gap: 50px;
+    transition: .5s;
 }
 
-.section-testimonials__swiper-slide {
+.section-testimonials__slide {
+    gap: 48px;
 }
 
-.section-testimonials__swiper-slide-bubble {
+.section-testimonials__slide-bubble {
     position: relative;
     border: 1px solid var(--green);
     padding: 48px 52px;
-    margin-bottom: 48px;
+    min-width: 606px;
 }
 
-.section-testimonials__swiper-slide-bubble:before,
-.section-testimonials__swiper-slide-bubble:after {
+.section-testimonials__slide-bubble:before,
+.section-testimonials__slide-bubble:after {
     content: "";
     position: absolute;
     top: 100%;
@@ -290,29 +292,39 @@
     border-color: var(--green) transparent;
 }
 
-.section-testimonials__swiper-slide-bubble:after {
+.section-testimonials__slide-bubble:after {
     border-color: var(--dark) transparent;
     top: calc(100% - 2px);
 }
 
-.section-testimonials__swiper-slide-author {
+.section-testimonials__slide-title {
     margin-left: 80px;
 }
 
-.section-testimonials__swiper-slide-bubble-text {
-    max-width: 502px;
-}
-
-.section-testimonials__swiper-nav {  /*Swiper Nav*/
+.section-testimonials__slider-nav {  /*Slider Nav*/
     gap: 189px;
 }
 
-.section-testimonials__swiper-pagination-bullets {
-    gap: 19px;
+.section-testimonials__slider-nav-dots {
+    gap: 1px;
+    user-select: none;
 }
 
-.section-testimonials__swiper-pagination-button_active:hover,
-.section-testimonials__swiper-pagination-bullet:hover {
+.section-testimonials__slider-nav-button.disabled {
+    filter: opacity(.3);
+    cursor: unset;
+}
+
+.section-testimonials__slider-nav-dot {
+    padding: 9px;
+}
+
+.section-testimonials__slider-nav-dot.active {
+    cursor: unset;
+}
+
+.section-testimonials__slider-nav-button:not(.disabled):hover,
+.section-testimonials__slider-nav-dot:not(.active):hover {
     cursor: pointer;
     transform: scale(1.2);
 }
@@ -340,6 +352,10 @@
     gap: 14px;
 }
 
+.section-contact__form-radio-button:hover {
+    cursor: pointer;
+}
+
 .section-contact__form-radio-button-input {
     display: none;
 }
@@ -363,7 +379,7 @@
     background: var(--green);
     border-radius: 50%;
     opacity: 0;
-    transition: .1s;
+    transition: .2s;
 }
 
 .section-contact__form-radio-button-input:checked + .section-contact__form-radio-button-radio::after {

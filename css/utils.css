@@ -64,6 +64,10 @@
     flex-direction: column;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
 .justify-between {
     justify-content: space-between;
 }
