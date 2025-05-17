@@ -18,7 +18,7 @@ function updateHeaderState() {
             header.classList.add("header_scroll");
             showHeader();
         }
-    } else if (scrollPosition() < 31) {
+    } else if (scrollPosition() <= headerTop) {
         header.classList.remove("header_scroll");
         // header.classList.remove("transition");
         // requestAnimationFrame(() => {
@@ -30,6 +30,7 @@ function updateHeaderState() {
     lastScroll = scrollPosition();
 }
 
+const headerTop = parseInt(getComputedStyle(header).top);
 updateHeaderState();
 
 header.classList.add("transition");
