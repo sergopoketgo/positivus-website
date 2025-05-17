@@ -89,9 +89,9 @@
 }
 
 .container {
-    max-width: 1272px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 198px 15px 0 15px;
     /*padding-left: calc(50% - 621px);*/
     /*padding-right: calc(50% - 621px);*/
 }
@@ -203,4 +203,14 @@
 
 .transition {
     transition: var(--default-trans);
+}
+
+.opacity-hidden {
+    visibility: hidden;
+    filter: opacity(0);
+    /*opacity: 0;*/
+}
+
+.hidden {
+    display: none;
 }

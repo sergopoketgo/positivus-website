@@ -22,7 +22,7 @@ function addPaginationBullet(i) {
     } else
         image.src = PAGINATION_BULLET_SRC;
 
-    image.alt = `slide ${i+1} pagination bullet`
+    image.alt = `slide ${i+1} pagination bullet`;
     image.width = 14;
     image.height = 14;
     image.loading = "lazy";
@@ -67,12 +67,11 @@ for (let i = 0; i < slides.length; i++) {
 }
 
 const slideWidth = slides[0].clientWidth;
-const sliderWidth = slider.clientWidth
+const sliderWidth = slider.clientWidth;
 
 const sliderTrackGap = (sliderTrack.scrollWidth - slideWidth*slides.length)/(slides.length-1);
 
 const globalOffset = sliderWidth/2 - slideWidth/2 + -(slideWidth + sliderTrackGap);  // . - . + -(one slide offset)
-sliderTrack.style.transform = `translateX(${globalOffset}px)`;
 
 function updateSlider() {
     const offset = -currentIndex * slideWidth + -currentIndex * sliderTrackGap + globalOffset;
@@ -84,7 +83,32 @@ sliderTrack.prepend(slides[slides.length-1].cloneNode(true));
 sliderTrack.append(slides[1].cloneNode(true));
 const activeSlidesLength = slides.length-2;
 
-let currentIndex = 0
+const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+
+let currentIndex = 0;
+// Setting Slider Start Position With Animation
+function setSliderOffsetOnScroll() {
+    if (scrollPosition()+innerHeight >= sliderTrack.offsetTop && scrollPosition()+innerHeight <= sliderTrack.offsetTop+sliderTrack.offsetHeight && currentIndex === 0) {
+        const deltaScroll = scrollPosition() + innerHeight - sliderTrack.offsetTop;
+        const deltaOffset = -((deltaScroll * -globalOffset) / sliderTrack.offsetHeight);
+        sliderTrack.style.transform = `translateX(${deltaOffset}px)`;
+    } else if (scrollPosition() <= sliderTrack.offsetTop+sliderTrack.offsetHeight && scrollPosition() >= sliderTrack.offsetTop && currentIndex === activeSlidesLength-1) {
+        const deltaScroll = scrollPosition() - sliderTrack.offsetTop;
+        const deltaOffset = -((deltaScroll * -globalOffset) / sliderTrack.offsetHeight);
+
+        const offset = -currentIndex * slideWidth + -currentIndex * sliderTrackGap + globalOffset;
+        sliderTrack.style.transform = `translateX(${offset + deltaOffset}px)`;
+    }
+}
+
+if (scrollPosition()+innerHeight > sliderTrack.offsetTop+sliderTrack.offsetHeight)
+    sliderTrack.style.transform = `translateX(${globalOffset}px)`;
+else
+    setSliderOffsetOnScroll();
+
+window.addEventListener("scroll", setSliderOffsetOnScroll);
+
+
 btnNext.addEventListener("click", () => {
     // currentIndex = (currentIndex + 1) % activeSlidesLength;
     if (currentIndex === activeSlidesLength - 1)

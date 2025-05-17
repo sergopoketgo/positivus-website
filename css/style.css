@@ -1,6 +1,34 @@
 /*Header*/
 .header {
-    padding-top: 60px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    padding: 15px 0;
+    /*padding-top: 60px;*/
+}
+
+.header_scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.51);
+    backdrop-filter: blur(24px);
+    transition: background-color .7s;
+}
+
+.header_scroll.transition {
+    transition: all var(--default-trans), background-color .7s;
+}
+
+.header_scroll:hover {
+    background-color: var(--white);
+}
+
+.header__wrapper {
+    max-width: var(--container-width);
+    padding: 0 15px;
 }
 
 .header_nav-item:hover {
@@ -22,16 +50,12 @@
 }
 
 /*Section Main*/
-.section-main__main {
-    margin: 70px 0;
-}
-
 .section-main__main-block {
     gap: 35px;
 }
 
 .section-main {
-    padding-top: 70px;  /*198px*/
+    gap: 70px;
 }
 
 .section-main__title {
@@ -42,17 +66,26 @@
     max-width: 498px;
 }
 
-.section-main__image {
+.section-main__logotypes-container {
+    position: relative;
+    overflow: hidden;
 }
 
-.section-main__logotypes {
+.section-main__logotypes-track {
+    transition: .05s;
 }
 
-.section-main__logotypes-item {
+.section-main__logotypes-track_clone {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.section-main__logotype {
     filter: grayscale(1);
 }
 
-.section-main__logotypes-item:hover {
+.section-main__logotype:hover {
     filter: grayscale(0);
 }
 
@@ -112,15 +145,9 @@
 }
 
 /*Section Case Studies*/
-.section-case-studies {
-}
-
 .section-case-studies__block {
     padding: 70px 60px;
     gap: 64px;
-}
-
-.section-case-studies__block-item {
 }
 
 .section-case-studies__block-item-text {
@@ -149,9 +176,6 @@
 }
 
 /*Our Working Process*/
-.section-process {
-}
-
 .section-process__subtitle {
     max-width: 292px;
 }
@@ -164,6 +188,11 @@
     background: var(--grey);
     padding: 41px 60px;
     transition: var(--default-trans);
+}
+
+.section-process__accordion-item:not(.active):hover {
+    box-shadow: 0 0 0 0 var(--dark);
+    transform: translateY(5px) scale(1.02);
 }
 
 .section-process__accordion-item-header:hover {
@@ -217,14 +246,13 @@
 }
 
 .section-process__accordion-item.active {
+    box-shadow: 0 0 0 0 var(--dark);
+    transform: translateY(5px) scale(1.02);
     background: var(--green);
     padding: 41px 60px calc(41px + 14px);
 }  /*Accordion END*/
 
 /*Section Team*/
-.section-team {
-}
-
 .section-team__subtitle {
     max-width: 473px;
 }
@@ -233,6 +261,12 @@
     flex-basis: 387px;
     padding: 40px 35px;
     gap: 27px;
+    transition: var(--default-trans);
+}
+
+.section-team__card:hover {
+    box-shadow: 0 0 0 0 var(--dark);
+    transform: translateY(5px);
 }
 
 .section-team__card-person {
@@ -255,9 +289,6 @@
 }
 
 /*Section Testimonials*/
-.section-testimonials {
-}
-
 .section-testimonials__slider {
     overflow: hidden;
     padding-top: 84px;
@@ -330,15 +361,13 @@
 }
 
 /*Section Contact Us*/
-.section-contact {
-
-}
-
 .section-contact__subtitle {
     max-width: 323px;
 }
 
 .section-contact__block {
+    position: relative;
+    min-height: 777px;
     padding: 60px 100px 80px 100px;
     background: var(--grey) url("../img/svg/section-contact__block-Illustration.svg") calc(100% + 325px) 50% no-repeat;
 }
@@ -402,6 +431,17 @@
     resize: none;
 }
 
+.section-contact__form-submitted {  /*Form Submitted*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    gap: 35px;
+    text-align: center;
+    min-height: 777px;
+    padding: 60px 100px 80px 100px;
+    transition: .2s;
+}
+
 /*Footer*/
 .footer {
     border-radius: 45px 45px 0 0;
@@ -434,10 +474,25 @@
     gap: 20px;
 }
 
+.footer__contact-info-link:hover {
+    text-decoration: underline;
+}
+
 .footer__subscription {
-    gap: 20px;
-    padding: 58px 40px;
+    min-width: 635px;
+    padding: 48px 40px;
     background: #292a32;
+}
+
+.footer__subscription-form {
+    gap: 20px;
+    transition: .2s;
+}
+
+.footer__subscription-success {
+    opacity: 0;
+    transition: .2s;
+    gap: 8px;
 }
 
 .footer__subscription-input {
@@ -458,4 +513,22 @@
 .footer__legal {
     gap: 40px;
     line-height: 1.56;
+}
+
+/*Button Scroll Top of The Page*/
+.button-scroll-top {
+    position: fixed;
+    padding: 15px;
+    border-radius: 50%;
+    transition: .4s;
+    opacity: 0.5;
+}
+
+.button-scroll-top.active {
+    opacity: 1;
+}
+
+.button-scroll-top:hover {
+    transform: scale(1.1);
+    opacity: 1;
 }
