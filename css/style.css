@@ -12,8 +12,8 @@
     left: 0;
     z-index: 99;
     padding: 15px 0;
-    background-color: rgba(255, 255, 255, 0.51);
-    backdrop-filter: blur(24px);
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
     transition: background-color .7s;
 }
 
