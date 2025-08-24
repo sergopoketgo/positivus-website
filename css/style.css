@@ -503,9 +503,13 @@
     gap: 50px;
 }
 
-.footer__nav {
-    margin-bottom: 66px;
+.footer__block {
+    row-gap: 55px;
 }
+
+/*.footer__nav {*/
+/*    margin-bottom: 66px;*/
+/*}*/
 
 .footer__nav-list {
     gap: 40px;
@@ -717,9 +721,46 @@
     .section-testimonials__slide {
         flex-basis: 59.18vw;
     }
+
+    /*Footer*/
+    .footer {
+        position: relative;
+        width: 100vw;
+        left: -20px;
+        border-radius: unset;
+        padding: 50px 50px 30px 50px;
+    }
+
+    .footer__nav-icons {
+        order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer__contact {
+        width: 40%;
+    }
+
+    .footer__subscription {
+        width: 60%;
+        padding: 30px;
+    }
+
+    .footer__subscription-input {
+        padding: 20px;
+    }
+
+    .footer__subscription-form {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 767px) {
+    .underline {
+        text-decoration: unset;
+    }
+
     /*Section Main*/
     .section-main__header {
         grid-template-areas:
@@ -876,6 +917,57 @@
     .section-testimonials__slider-nav-dot {
         padding: 7px;
     }
+
+    /*Footer*/
+    .footer {
+        padding-left: clamp(1.25rem, -1.073rem + 8.75vw, 3.125rem);
+        padding-right: clamp(1.25rem, -1.073rem + 8.75vw, 3.125rem);
+        gap: 30px;
+    }
+
+    .footer__block {
+        row-gap: 40px;
+    }
+
+    .footer__logo {
+        margin: 0 auto;
+    }
+
+    .footer__nav-list {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .footer__nav-list_mobile-hidden {
+        display: none;
+    }
+
+    .footer__contact,
+    .footer__subscription {
+        width: 100%;
+    }
+
+    .footer__contact {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer__contact-title {
+        margin-bottom: 40px;
+    }
+
+    .footer__subscription-input,
+    .footer__subscription-button {
+        padding: 25px;
+    }
+
+    .footer__legal {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 424px) {
@@ -1016,5 +1108,10 @@
 
     .section-contact__form-input_message {
         min-height: 105px;
+    }
+
+    /*Footer*/
+    .footer__subscription-input {
+        padding: 15px 30px;
     }
 }

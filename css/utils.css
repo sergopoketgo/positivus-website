@@ -96,8 +96,6 @@
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 198px 20px 0 20px;
-    /*padding-left: calc(50% - 621px);*/
-    /*padding-right: calc(50% - 621px);*/
 }
 
 .mb-100 {
