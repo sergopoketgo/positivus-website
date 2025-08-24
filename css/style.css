@@ -27,10 +27,10 @@
 
 .header__wrapper {
     max-width: var(--container-width);
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
-.header_nav-item:hover {
+.header__nav-item:hover {
     transform: scale(1.1);
 }
 
@@ -48,6 +48,10 @@
     padding: 10px 20px;
 }
 
+.header__menu {
+    display: none;
+}
+
 /*Section Main*/
 .section-main__main-block {
     gap: 35px;
@@ -57,12 +61,35 @@
     gap: 70px;
 }
 
+.section-main__header {
+    display: grid;
+    grid-area: header;
+    grid-template-areas:
+        "title image"
+        "subtitle image"
+        "button image"
+        "header image";
+    justify-items: start;
+    align-items: start;
+    grid-row-gap: 35px;
+}
+
 .section-main__title {
+    grid-area: title;
     max-width: 531px;
 }
 
+.section-main__image {
+    grid-area: image;
+}
+
 .section-main__subtitle {
+    grid-area: subtitle;
     max-width: 498px;
+}
+
+.section-main__button {
+    grid-area: button;
 }
 
 .section-main__logotypes-container {
@@ -90,12 +117,18 @@
 
 /*Section Services*/
 .section-services {
-    margin-bottom: calc(100px + 23px);
+    margin-bottom: 165px;
+}
+
+.section-services__cards {
+    gap: 40px;
 }
 
 .section-services__card {
-    flex-basis: 600px;
+    position: relative;
     padding: 50px;
+    flex-basis: 600px;
+    flex-shrink: 1;
     transition: var(--default-trans);
 }
 
@@ -105,20 +138,19 @@
 }
 
 .section-services__card-title {
-    margin-bottom: 93px
+    margin-bottom: 93px;
 }
 
-.section-services__card-link::before {
-    padding-right: 15px;
-    line-height: 1;
+.section-services__card-link {
+    display: flex;
+    gap: 15px;
 }
 
-.section-services__card-link_arrow-black::before {
-    content: url("../img/svg/arrow-black.svg")
-}
-
-.section-services__card-link_arrow-white::before {
-    content: url("../img/svg/arrow-white-alt.svg");
+.section-services__card-image {
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /*CTA*/
@@ -126,9 +158,6 @@
     position: relative;
     padding: 60px;
     margin-top: 23px;
-}
-
-.section-services__cta-block {
     gap: 26px;
 }
 
@@ -175,6 +204,11 @@
 }
 
 /*Our Working Process*/
+.section-process__heading-title-row {
+    padding-left: unset;
+    padding-right: unset;
+}
+
 .section-process__subtitle {
     max-width: 292px;
 }
@@ -199,6 +233,7 @@
 }
 
 .section-process__accordion-item-header-icon {
+    flex-shrink: 0;
     position: relative;
     width: 58px;
     height: 58px;
@@ -215,14 +250,14 @@
 }
 
 .section-process__accordion-item-header-icon::before {
-    width: 18px;
-    height: 6px;
+    width: 31%;
+    height: 10%;
     transition: var(--default-trans);
 }
 
 .section-process__accordion-item-header-icon::after {
-    width: 6px;
-    height: 18px;
+    width: 10%;
+    height: 31%;
     transition: var(--default-trans);
 }
 
@@ -248,7 +283,7 @@
     box-shadow: 0 0 0 0 var(--dark);
     transform: translateY(5px) scale(1.02);
     background: var(--green);
-    padding: 41px 60px calc(41px + 14px);
+    padding-bottom: 55px;
 }  /*Accordion END*/
 
 /*Section Team*/
@@ -256,10 +291,19 @@
     max-width: 473px;
 }
 
+.section-team__cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
 .section-team__card {
     flex-basis: 387px;
     padding: 40px 35px;
     gap: 27px;
+    flex-grow: 1;
     transition: var(--default-trans);
 }
 
@@ -284,41 +328,44 @@
 }
 
 .section-team__button {
+    margin-left: auto;
     padding: 20px 76px;
 }
 
 /*Section Testimonials*/
 .section-testimonials__slider {
-    overflow: hidden;
     padding-top: 84px;
-    padding-bottom: 58px;
-    gap: 124px;
+    padding-bottom: 68px;
+    gap: 8.61vw;
 }
 
 .section-testimonials__slider-track {
+    overflow: scroll;
     gap: 50px;
-    transition: .5s;
 }
 
 .section-testimonials__slide {
     gap: 48px;
+    flex: 0 0 606px;
 }
 
 .section-testimonials__slide-bubble {
     position: relative;
     border: 1px solid var(--green);
     padding: 48px 52px;
-    min-width: 606px;
 }
 
 .section-testimonials__slide-bubble:before,
 .section-testimonials__slide-bubble:after {
     content: "";
     position: absolute;
-    top: 100%;
     left: 50px;
     border-width: 34px 32px 0;
     border-style: solid;
+}
+
+.section-testimonials__slide-bubble:before {
+    top: 100%;
     border-color: var(--green) transparent;
 }
 
@@ -332,17 +379,23 @@
 }
 
 .section-testimonials__slider-nav {  /*Slider Nav*/
-    gap: 189px;
+    justify-content: space-between;
+    width: 564px;
+    margin: 0 auto;
 }
 
-.section-testimonials__slider-nav-dots {
-    gap: 1px;
-    user-select: none;
+.section-testimonials__slider-nav-button {
+
 }
 
 .section-testimonials__slider-nav-button.disabled {
     filter: opacity(.3);
     cursor: unset;
+}
+
+.section-testimonials__slider-nav-dots {
+    gap: 1px;
+    user-select: none;
 }
 
 .section-testimonials__slider-nav-dot {
@@ -365,7 +418,6 @@
 }
 
 .section-contact__block {
-    position: relative;
     min-height: 777px;
     padding: 60px 100px 80px 100px;
     background: var(--grey) url("../img/svg/section-contact__block-Illustration.svg") calc(100% + 325px) 50% no-repeat;
@@ -374,6 +426,10 @@
 .section-contact__form {  /*Forms*/
     gap: 40px;
     max-width: 556px;
+}
+
+.section-contact__form-main {
+    gap: 40px;
 }
 
 .section-contact__form-radio-button {  /*Forms Radio Buttons BEGIN*/
@@ -435,7 +491,6 @@
     top: 0;
     left: 0;
     gap: 35px;
-    text-align: center;
     min-height: 777px;
     padding: 60px 100px 80px 100px;
     transition: .2s;
@@ -478,7 +533,7 @@
 }
 
 .footer__subscription {
-    min-width: 635px;
+    /*min-width: 635px;*/
     padding: 48px 40px;
     background: #292a32;
 }
@@ -530,4 +585,436 @@
 .button-scroll-top:hover {
     transform: scale(1.1);
     opacity: 1;
+}
+
+@media (max-width: 1140px) {
+    .text-l {
+        font-size: 1.05rem;
+    }
+
+    .text-xl {
+        font-size: 2.75rem;
+    }
+
+    .text-title-section {
+        font-size: 1.813rem;
+    }
+
+    .text-title {
+        font-size: 1.438rem;
+    }
+
+    .text-subtitle {
+        font-size: 0.925rem;
+        line-height: 1.5;
+    }
+
+    .text-name {
+        font-size: 1rem;
+    }
+
+    /*Section Contact Us*/
+    .section-contact__block {
+        padding: unset;
+        background: unset;
+        min-height: unset;
+    }
+    
+    .section-contact__form-main {
+        padding: 60px 50px 60px 50px;
+        background: var(--grey);
+    }
+
+    .section-contact__form {
+        max-width: unset;
+    }
+}
+
+@media (max-width: 1023px) {
+    .heading {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .mb-100,
+    .mb-140 {
+        margin-bottom: 65px;
+    }
+
+    /*Header*/
+    .header__logo {
+        height: 24px;
+        width: auto;
+    }
+
+    .header__row {
+        display: none;
+    }
+
+    .header__menu {
+        display: unset;
+    }
+
+    /*Section Main*/
+    .section-main__image {
+        width: 50vw;
+        height: auto;
+    }
+
+    /*Section Services*/
+    .section-services {
+        margin-bottom: 60px;
+    }
+
+    .section-services__card-link-text {
+        display: none;
+    }
+
+    .section-services__card-image {
+        width: 150px;
+        height: auto;
+        top: unset;
+        transform: unset;
+        bottom: 50px;
+    }
+
+    .section-services__cta {
+        align-items: stretch;
+    }
+
+    .section-services__cta-image {
+        display: none;
+    }
+
+    /*Section Case Studies*/
+    .section-case-studies__block-vertical-line {
+        display: none;
+    }
+
+    .section-case-studies__block {
+        gap: 20px;
+    }
+
+    .section-case-studies__block-item {
+        flex-basis: 350px;
+    }
+
+    /*Our Working Process*/
+    .section-process__subtitle {
+        max-width: 350px;
+    }
+
+    /*Section Team*/
+    .section-team__cards {
+        gap: 25px;
+        margin-bottom: 35px;
+    }
+
+    /*Section Testimonials*/
+    .section-testimonials__slide {
+        flex-basis: 59.18vw;
+    }
+}
+
+@media (max-width: 767px) {
+    /*Section Main*/
+    .section-main__header {
+        grid-template-areas:
+            "title"
+            "image"
+            "subtitle"
+            "button";
+        justify-items: stretch;
+    }
+
+    .section-main__subtitle {
+        max-width: unset;
+    }
+
+    .section-main__image {
+        width: 100%;  /*90.7vw*/
+    }
+
+    /*Section Services*/
+    .section-services__cards {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .section-services__card {
+        flex-basis: unset;
+    }
+
+    .section-services__card,
+    .section-services__cta {
+        padding: 45px;
+    }
+
+    .section-services__card-image {
+        right: 45px;
+        bottom: 45px;
+    }
+
+    /*Section Case Studies*/
+    .section-case-studies__block {
+        background: unset;
+        border-radius: unset;
+        overflow-x: auto;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 20px;
+    }
+
+    .section-case-studies__block-item {
+        background: var(--dark);
+        padding: 45px 50px;
+        flex-shrink: 0;
+    }
+
+    /*Our Working Process*/
+    .section-process__heading-title {
+        display: grid;
+        justify-items: center;
+        background: unset;
+    }
+
+    .section-process__heading-title-row {
+        padding: inherit;
+        border-radius: inherit;
+    }
+
+    .section-process__accordion {
+        gap: 20px;
+    }
+
+    .section-process__accordion-item {
+        border-top: none;
+        padding: 30px 25px;
+    }
+
+    .section-process__accordion-item.active {
+        padding-bottom: 37px;
+    }
+
+    .section-process__accordion-item-header-label-number {
+        font-size: 1.5rem;
+    }
+
+    .section-process__accordion-item-header-label-text {
+        font-size: 1.188rem;
+    }
+
+    .section-process__accordion-item-header-icon {
+        width: 7.91vw;
+        height: 7.91vw;
+        border-top: none;
+    }
+
+    /*Section Team*/
+    .section-team__button {
+        margin-left: unset;
+    }
+
+    /*Section Contact Us*/
+    .section-contact__form-main {
+        padding: 35px 30px 50px 30px;
+    }
+
+    .section-contact__form {
+        gap: 30px;
+    }
+
+    .section-contact__form-radio-buttons {
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .section-contact__form-fields {
+        gap: 20px;
+    }
+
+    .section-contact__form-input {
+        padding: 18px;
+    }
+
+    .section-contact__form-input_message {
+        min-height: 135px;
+    }
+
+    /*Section Testimonials*/
+    .section-testimonials__slider {
+        padding: 30px 25px 60px 25px;
+    }
+
+    .section-testimonials__slide {
+        flex-basis: 100%;
+    }
+
+    .section-testimonials__slide-bubble {
+        padding: 30px;
+    }
+
+    .section-testimonials__slide-bubble:before,
+    .section-testimonials__slide-bubble:after {
+        border-width: 27px 26px 0;
+    }
+
+    .section-testimonials__slide-title {
+        margin-left: 75px;
+    }
+
+    .section-testimonials__slider-nav {
+        width: unset;
+        margin: unset;
+    }
+
+    .section-testimonials__slider-nav-dot {
+        padding: 7px;
+    }
+}
+
+@media (max-width: 424px) {
+    .mb-100,
+    .mb-140 {
+        margin-bottom: 15.12vw;
+    }
+
+    /*Section Case Studies*/
+    .section-case-studies__block {
+        flex-direction: column;
+    }
+
+    .section-case-studies__block-item {
+        flex-basis: unset;
+        padding: 40px 35px;
+    }
+
+    /*Section Services*/
+    .section-services__card,
+    .section-services__cta {
+        padding: 35px 30px;
+    }
+
+    .section-services__card-image {
+        right: 30px;
+        bottom: 35px;
+    }
+
+    /*Section Team*/
+    .section-team__card {
+        padding: 25px;
+    }
+
+    /*Section Testimonials*/
+    .section-testimonials__slider {
+        padding: 30px 25px 40px 25px;
+        gap: 5vw;
+    }
+
+    .section-testimonials__slide {
+        gap: 35px;
+    }
+
+    .section-testimonials__slide-bubble {
+        padding: 25px;
+    }
+
+    .section-testimonials__slide-title {
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 374px) {
+    .br-14 {
+        border-radius: 17px;
+    }
+
+    .button {
+        padding: 15px 30px;
+    }
+
+    /*Section Services*/
+    .section-services__card-image {
+        width: 40vw;
+    }
+
+    .section-services__cta {
+        gap: 15px;
+    }
+
+    /*Our Working Process*/
+    .section-process__accordion-item {
+        padding: 30px 20px;
+    }
+
+    .section-process__accordion-item-header-icon {
+        width: 9vw;
+        height: 9vw;
+    }
+
+    .section-team__card {
+        gap: 15px;
+    }
+
+    /*Section Testimonials*/
+    .section-testimonials__slide {
+        gap: 30px;
+    }
+
+    .section-testimonials__slide-bubble {
+        padding: 18px;
+        line-height: 1.1;
+    }
+
+    .section-testimonials__slide-bubble:before,
+    .section-testimonials__slide-bubble:after {
+        left: 35px;
+        border-width: 21px 22px 0;
+    }
+
+    .section-testimonials__slide-title {
+        margin-left: 10px;
+    }
+
+    /*Section Contact Us*/
+    .section-contact__form-main {
+        padding: 30px 25px 35px 25px;
+        gap: 25px;
+    }
+
+    .section-contact__form-radio-buttons {
+        gap: unset;
+        justify-content: space-around;
+    }
+
+    .section-contact__form-radio-button {
+        gap: 5px;
+    }
+
+    .section-contact__form-radio-button-radio {
+        width: 24px;
+        height: 24px;
+    }
+
+    .section-contact__form-radio-button-radio::after {
+        width: 15px;
+        height: 15px;
+    }
+
+    .section-contact__form-label {
+        margin-bottom: unset;
+    }
+
+    .section-contact__form-input {
+        padding: 14px;
+    }
+
+    .section-contact__form-input_message {
+        min-height: 105px;
+    }
 }

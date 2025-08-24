@@ -15,6 +15,10 @@
     color: var(--green);
 }
 
+.text-center {
+    text-align: center;
+}
+
 .text-l {
     font-size: 1.25rem;
     line-height: 1.4;
@@ -91,13 +95,9 @@
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 198px 15px 0 15px;
+    padding: 198px 20px 0 20px;
     /*padding-left: calc(50% - 621px);*/
     /*padding-right: calc(50% - 621px);*/
-}
-
-.mb-35 {
-    margin-bottom: 35px;
 }
 
 .mb-100 {
@@ -165,13 +165,6 @@
 .heading {
     gap: 40px;
     margin-bottom: 80px;
-}
-
-.cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
 }
 
 .card {
