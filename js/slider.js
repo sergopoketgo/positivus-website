@@ -1,162 +1,118 @@
-const PAGINATION_BULLET_ACTIVE_SRC = "img/svg/section-testimonials__slider-nav-dot_active.svg";
-const PAGINATION_BULLET_SRC = "img/svg/section-testimonials__slider-nav-dot.svg";
-
-
-const dotsContainer = document.getElementById("dotsContainer");
-const slider = document.getElementById("slider");
 const sliderTrack = document.getElementById("sliderTrack");
 const slides = sliderTrack.children;
 const btnNext = document.getElementById("btnNext");
 const btnPrev = document.getElementById("btnPrev");
+const dots = document.querySelectorAll(".section-testimonials__slider-nav-dot");
 
-function addPaginationBullet(i) {
-    const dot = document.createElement("button");
-    const image = new Image();
+// function scrollSliderBy(posX) {
+//     sliderPosX += -posX;
+//     sliderTrack.style.transform = "translateX(" + sliderPosX + "px)";
+// }
 
-    dot.classList.add("section-testimonials__slider-nav-dot", "transition", "flex");
-
-    // For First(Active) Element
-    if (i === 0) {
-        dot.classList.add("active");
-        image.src = PAGINATION_BULLET_ACTIVE_SRC;
-    } else
-        image.src = PAGINATION_BULLET_SRC;
-
-    image.alt = `slide ${i+1} pagination bullet`;
-    image.width = 14;
-    image.height = 14;
-    image.loading = "lazy";
-    dot.append(image);
-
-    dot.addEventListener("click", () => {
-        if (currentIndex === i)
-            return;
-        currentIndex = i;
-
-        updateSlider();
-
-        // Pagination Update
-        for (const _dot of dotsContainer.children) {
-            if (_dot.classList.contains("active") ) {
-                _dot.classList.remove("active");
-                _dot.firstChild.src = PAGINATION_BULLET_SRC;
-            }
-        }
-        dotsContainer.children[currentIndex].classList.add("active");
-        dotsContainer.children[currentIndex].firstChild.src = PAGINATION_BULLET_ACTIVE_SRC;
-
-        // Prev & Next Buttons Update
-        if (currentIndex > 0 && currentIndex < activeSlidesLength-1) {
-            btnPrev.classList.remove("disabled");
-            btnNext.classList.remove("disabled");
-        } else if (currentIndex === 0) {
-            btnPrev.classList.add("disabled");
-            btnNext.classList.remove("disabled");
-        } else {
-            btnPrev.classList.remove("disabled");
-            btnNext.classList.add("disabled");
-        }
-
-    });
-
-    dotsContainer.append(dot);
+function setActiveSlide(index) {
+    const sliderPosX = sliderOffsetX - (slide * index);
+    sliderTrack.style.transform = "translateX(" + sliderPosX + "px)";
 }
 
-for (let i = 0; i < slides.length; i++) {
-    addPaginationBullet(i);
+function paginationUpdate() {
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[currentSlideIndex].classList.add("active");
 }
 
-const slideWidth = slides[0].clientWidth;
-const sliderWidth = slider.clientWidth;
+// Count of Active Slides (without duplicates)
+const lastSlideIndex = slides.length-1;
 
-const sliderTrackGap = (sliderTrack.scrollWidth - slideWidth*slides.length)/(slides.length-1);
-
-const globalOffset = sliderWidth/2 - slideWidth/2 + -(slideWidth + sliderTrackGap);  // . - . + -(one slide offset)
-
-function updateSlider() {
-    const offset = -currentIndex * slideWidth + -currentIndex * sliderTrackGap + globalOffset;
-    sliderTrack.style.transform = `translateX(${offset}px)`;
-}
-
-// Add Begin & End slides
+// Add Begin & End slides (Duplicate)
 sliderTrack.prepend(slides[slides.length-1].cloneNode(true));
 sliderTrack.append(slides[1].cloneNode(true));
-const activeSlidesLength = slides.length-2;
 
-const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+// Slider Main Params
+const sliderWidth = sliderTrack.clientWidth;
+const slideWidth = slides[0].clientWidth;
+const sliderTrackGap = (sliderTrack.scrollWidth - slideWidth*slides.length)/(slides.length-1);
+const slide = slideWidth + sliderTrackGap;
 
-let currentIndex = 0;
-// Setting Slider Start Position With Animation
-function setSliderOffsetOnScroll() {
-    if (scrollPosition()+innerHeight >= sliderTrack.offsetTop && scrollPosition()+innerHeight <= sliderTrack.offsetTop+sliderTrack.offsetHeight && currentIndex === 0) {
-        const deltaScroll = scrollPosition() + innerHeight - sliderTrack.offsetTop;
-        const deltaOffset = -((deltaScroll * -globalOffset) / sliderTrack.offsetHeight);
-        sliderTrack.style.transform = `translateX(${deltaOffset}px)`;
-    } else if (scrollPosition() <= sliderTrack.offsetTop+sliderTrack.offsetHeight && scrollPosition() >= sliderTrack.offsetTop && currentIndex === activeSlidesLength-1) {
-        const deltaScroll = scrollPosition() - sliderTrack.offsetTop;
-        const deltaOffset = -((deltaScroll * -globalOffset) / sliderTrack.offsetHeight);
+// Scroll To First Slide
+let sliderOffsetX  = -(slideWidth*1.5 + sliderTrackGap - sliderWidth/2);
+// let sliderPosX = sliderOffsetX;
+sliderTrack.style.transform = "translateX(" + sliderOffsetX + "px)";
+let currentSlideIndex = 0;
 
-        const offset = -currentIndex * slideWidth + -currentIndex * sliderTrackGap + globalOffset;
-        sliderTrack.style.transform = `translateX(${offset + deltaOffset}px)`;
+// Next && Prev Slide Switch
+function nextSlide() {
+    if (currentSlideIndex < lastSlideIndex) {
+        currentSlideIndex++;
+        setActiveSlide(currentSlideIndex);
+        // scrollSliderBy(slide);
+
+        // Navigation Buttons Update State
+        if (currentSlideIndex === 1)
+            btnPrev.classList.remove("disabled");
+        else if (currentSlideIndex === lastSlideIndex)
+            this.classList.add("disabled");
+
+        paginationUpdate();
     }
 }
 
-if (scrollPosition()+innerHeight > sliderTrack.offsetTop+sliderTrack.offsetHeight)
-    sliderTrack.style.transform = `translateX(${globalOffset}px)`;
-else
-    setSliderOffsetOnScroll();
+function prevSlide() {
+    if (currentSlideIndex > 0) {
+        currentSlideIndex--;
+        setActiveSlide(currentSlideIndex);
+        // scrollSliderBy(-slide);
 
-window.addEventListener("scroll", setSliderOffsetOnScroll);
+        // Navigation Buttons Update State
+        if (currentSlideIndex === lastSlideIndex-1)
+            btnNext.classList.remove("disabled");
+        else if (currentSlideIndex === 0)
+            this.classList.add("disabled");
 
-
-btnNext.addEventListener("click", () => {
-    // currentIndex = (currentIndex + 1) % activeSlidesLength;
-    if (currentIndex === activeSlidesLength - 1)
-        return;
-    currentIndex++;
-
-    updateSlider();
-
-    // Pagination Update
-    if (currentIndex > 0) {
-        dotsContainer.children[currentIndex - 1].classList.remove("active");
-        dotsContainer.children[currentIndex - 1].firstChild.src = PAGINATION_BULLET_SRC;
-    } else {
-        dotsContainer.children[activeSlidesLength - 1].classList.remove("active");
-        dotsContainer.children[activeSlidesLength - 1].firstChild.src = PAGINATION_BULLET_SRC;
+        paginationUpdate();
     }
-    dotsContainer.children[currentIndex].classList.add("active");
-    dotsContainer.children[currentIndex].firstChild.src = PAGINATION_BULLET_ACTIVE_SRC;
+}
 
-    // Prev & Next Buttons Update
-    if (currentIndex === 1)
-        btnPrev.classList.remove("disabled");
-    else if (currentIndex === activeSlidesLength-1)
-        btnNext.classList.add("disabled");
+btnNext.addEventListener("click", nextSlide);
+btnPrev.addEventListener("click", prevSlide);
+
+// Switch Slide on Pagination Bullet Click
+dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        currentSlideIndex = index;
+        setActiveSlide(currentSlideIndex);
+
+        // Navigation Buttons Update State
+        if (currentSlideIndex === 0) {
+            btnNext.classList.remove("disabled");
+            btnPrev.classList.add("disabled");
+        } else if (currentSlideIndex === lastSlideIndex) {
+            btnNext.classList.add("disabled");
+            btnPrev.classList.remove("disabled");
+        } else
+            [btnNext, btnPrev].forEach((btn) => {
+                btn.classList.remove("disabled");
+            });
+
+        paginationUpdate();
+    });
 });
 
-btnPrev.addEventListener("click", () => {
-    // currentIndex = (currentIndex - 1 + activeSlidesLength) % (activeSlidesLength);
-    if (currentIndex === 0)
-        return;
-    currentIndex--;
+// Slider Drag
+let touchStartPosX;
+sliderTrack.addEventListener("touchstart", (event) => {
+    const touch = event.touches[0];
 
-    updateSlider();
-
-    // Pagination Update
-    if (currentIndex < activeSlidesLength-1) {
-        dotsContainer.children[currentIndex + 1].classList.remove("active");
-        dotsContainer.children[currentIndex + 1].firstChild.src = PAGINATION_BULLET_SRC;
-    } else {
-        dotsContainer.children[0].classList.remove("active");
-        dotsContainer.children[0].firstChild.src = PAGINATION_BULLET_SRC;
-    }
-    dotsContainer.children[currentIndex].classList.add("active");
-    dotsContainer.children[currentIndex].firstChild.src = PAGINATION_BULLET_ACTIVE_SRC;
-
-    // Prev & Next Buttons Update
-    if (currentIndex === 0)
-        btnPrev.classList.add("disabled");
-    else if (currentIndex === activeSlidesLength-2)
-        btnNext.classList.remove("disabled");
+    touchStartPosX = touch.clientX;
 });
+
+sliderTrack.addEventListener("touchmove", (event) => {
+    const touch = event.touches[0];
+
+    sliderTrack.style.left = touch.clientX - touchStartPosX + "px";
+});
+
+// sliderTrack.addEventListener("touchend", (event) => {
+//     const touch = event.touches[0];
+//
+//     sliderTrack.style.left = null;
+//     setActiveSlide(currentSlideIndex+1);
+// });

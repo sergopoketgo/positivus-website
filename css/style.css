@@ -334,14 +334,16 @@
 
 /*Section Testimonials*/
 .section-testimonials__slider {
+    overflow-x: hidden;
     padding-top: 84px;
     padding-bottom: 68px;
     gap: 8.61vw;
 }
 
 .section-testimonials__slider-track {
-    overflow: scroll;
+    position: relative;
     gap: 50px;
+    transition: transform var(--default-trans);
 }
 
 .section-testimonials__slide {
@@ -399,10 +401,13 @@
 }
 
 .section-testimonials__slider-nav-dot {
-    padding: 9px;
+    width: 32px;
+    height: 32px;
+    background: url("../img/svg/section-testimonials__slider-nav-dot.svg") no-repeat center;
 }
 
 .section-testimonials__slider-nav-dot.active {
+    background-image: url("../img/svg/section-testimonials__slider-nav-dot_active.svg");
     cursor: unset;
 }
 
@@ -915,7 +920,8 @@
     }
 
     .section-testimonials__slider-nav-dot {
-        padding: 7px;
+        width: 28px;
+        height: 28px;
     }
 
     /*Footer*/
