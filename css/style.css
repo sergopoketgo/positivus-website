@@ -343,7 +343,7 @@
 .section-testimonials__slider-track {
     position: relative;
     gap: 50px;
-    transition: transform var(--default-trans);
+    touch-action: pan-y;
 }
 
 .section-testimonials__slide {

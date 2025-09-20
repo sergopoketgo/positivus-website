@@ -19,6 +19,19 @@ function paginationUpdate() {
     dots[currentSlideIndex].classList.add("active");
 }
 
+function navigationUpdateFull() {
+    if (currentSlideIndex === 0) {
+        btnNext.classList.remove("disabled");
+        btnPrev.classList.add("disabled");
+    } else if (currentSlideIndex === lastSlideIndex) {
+        btnNext.classList.add("disabled");
+        btnPrev.classList.remove("disabled");
+    } else
+        [btnNext, btnPrev].forEach((btn) => {
+            btn.classList.remove("disabled");
+        });
+}
+
 // Count of Active Slides (without duplicates)
 const lastSlideIndex = slides.length-1;
 
@@ -80,18 +93,7 @@ dots.forEach((dot, index) => {
         currentSlideIndex = index;
         setActiveSlide(currentSlideIndex);
 
-        // Navigation Buttons Update State
-        if (currentSlideIndex === 0) {
-            btnNext.classList.remove("disabled");
-            btnPrev.classList.add("disabled");
-        } else if (currentSlideIndex === lastSlideIndex) {
-            btnNext.classList.add("disabled");
-            btnPrev.classList.remove("disabled");
-        } else
-            [btnNext, btnPrev].forEach((btn) => {
-                btn.classList.remove("disabled");
-            });
-
+        navigationUpdateFull();
         paginationUpdate();
     });
 });
@@ -100,19 +102,40 @@ dots.forEach((dot, index) => {
 let touchStartPosX;
 sliderTrack.addEventListener("touchstart", (event) => {
     const touch = event.touches[0];
-
     touchStartPosX = touch.clientX;
+
+    sliderTrack.classList.remove("transition");
 });
 
 sliderTrack.addEventListener("touchmove", (event) => {
-    const touch = event.touches[0];
+    const touchDeltaPosX = event.touches[0].clientX - touchStartPosX;
+    const sliderPosX = sliderOffsetX - (slide * currentSlideIndex);
 
-    sliderTrack.style.left = touch.clientX - touchStartPosX + "px";
+    const minSliderPosX = sliderOffsetX;
+    const maxSliderPosX = sliderOffsetX - (slide * lastSlideIndex);
+
+    const sliderDraggedPosX = sliderPosX + touchDeltaPosX;
+
+    if (sliderDraggedPosX >= minSliderPosX)
+        sliderTrack.style.transform = "translateX(" + minSliderPosX + "px)";
+    else if (sliderDraggedPosX <= maxSliderPosX)
+        sliderTrack.style.transform = "translateX(" + maxSliderPosX + "px)";
+    else
+        sliderTrack.style.transform = "translateX(" + sliderDraggedPosX + "px)";
 });
 
-// sliderTrack.addEventListener("touchend", (event) => {
-//     const touch = event.touches[0];
-//
-//     sliderTrack.style.left = null;
-//     setActiveSlide(currentSlideIndex+1);
-// });
+sliderTrack.addEventListener("touchend", (event) => {
+    // const touch = event.touches[0];
+    const touchDeltaPosX = event.changedTouches[0].clientX - touchStartPosX;
+
+    if (touchDeltaPosX < -50 && currentSlideIndex < lastSlideIndex)
+        currentSlideIndex++;
+    else if (touchDeltaPosX > 50 && currentSlideIndex > 0)
+        currentSlideIndex--;
+    setActiveSlide(currentSlideIndex);
+
+    navigationUpdateFull();
+    paginationUpdate();
+
+    sliderTrack.classList.add("transition");
+});
