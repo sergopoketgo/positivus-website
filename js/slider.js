@@ -32,22 +32,33 @@ function navigationUpdateFull() {
         });
 }
 
+// Is Loaded Device Desktop?
+let isDesktop = window.innerWidth >= 767;
+
 // Count of Active Slides (without duplicates)
 const lastSlideIndex = slides.length-1;
 
 // Add Begin & End slides (Duplicate)
-sliderTrack.prepend(slides[slides.length-1].cloneNode(true));
-sliderTrack.append(slides[1].cloneNode(true));
+if (isDesktop) {
+    sliderTrack.prepend(slides[slides.length-1].cloneNode(true));
+    sliderTrack.append(slides[1].cloneNode(true));
+}
 
 // Slider Main Params
-const sliderWidth = sliderTrack.clientWidth;
-const slideWidth = slides[0].clientWidth;
-const sliderTrackGap = (sliderTrack.scrollWidth - slideWidth*slides.length)/(slides.length-1);
-const slide = slideWidth + sliderTrackGap;
+let sliderWidth = sliderTrack.clientWidth;
+let slideWidth = slides[0].clientWidth;
+let sliderTrackGap = (sliderTrack.scrollWidth - slideWidth*slides.length)/(slides.length-1);
+let slide = slideWidth + sliderTrackGap;
+function param_adaptation() {
+    sliderWidth = sliderTrack.clientWidth;
+    slideWidth = slides[0].clientWidth;
+    sliderTrackGap = (sliderTrack.scrollWidth - slideWidth*slides.length)/(slides.length-1);
+    slide = slideWidth + sliderTrackGap;
+}
 
 // Scroll To First Slide
-let sliderOffsetX  = -(slideWidth*1.5 + sliderTrackGap - sliderWidth/2);
-// let sliderPosX = sliderOffsetX;
+let sliderOffsetX  = (isDesktop) ? -(slideWidth*1.5 + sliderTrackGap - sliderWidth/2) : -(slideWidth/2 - sliderWidth/2);
+
 sliderTrack.style.transform = "translateX(" + sliderOffsetX + "px)";
 let currentSlideIndex = 0;
 
@@ -138,4 +149,37 @@ sliderTrack.addEventListener("touchend", (event) => {
     paginationUpdate();
 
     sliderTrack.classList.add("transition");
+});
+
+// On Resize Adaptation
+window.addEventListener("resize", () => {
+    const isResizedDeviceDesktop = window.innerWidth >= 767;
+
+    param_adaptation();
+
+    if (isDesktop && !isResizedDeviceDesktop) {  // Desktop to Mobile
+        // Removing Duplicate Slides
+        sliderTrack.firstChild.remove();
+        sliderTrack.lastChild.remove();
+
+        // Changing Offset to Mobile
+        sliderOffsetX = -(slideWidth / 2 - sliderWidth / 2);
+
+        // Set New Last Used Device
+        isDesktop = isResizedDeviceDesktop;
+    } else if (!isDesktop && isResizedDeviceDesktop) {  // Mobile to Desktop
+        // Adding Duplicate Slides
+        sliderTrack.prepend(slides[slides.length-1].cloneNode(true));
+        sliderTrack.append(slides[1].cloneNode(true));
+
+        // Changing Offset to Desktop
+        sliderOffsetX = -(slideWidth*1.5 + sliderTrackGap - sliderWidth/2);
+
+        // Set New Last Used Device
+        isDesktop = isResizedDeviceDesktop;
+    } else {
+        sliderOffsetX  = (isResizedDeviceDesktop) ? -(slideWidth*1.5 + sliderTrackGap - sliderWidth/2) : -(slideWidth/2 - sliderWidth/2);
+    }
+
+    setActiveSlide(currentSlideIndex);
 });
