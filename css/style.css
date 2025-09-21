@@ -1,3 +1,7 @@
+html, body {
+    scroll-behavior: smooth;
+}
+
 /*Header*/
 .header {
     position: absolute;
@@ -585,6 +589,8 @@
     border-radius: 50%;
     transition: .4s;
     opacity: 0.5;
+    right: 20px;
+    bottom: 35px;
 }
 
 .button-scroll-top.active {
@@ -973,6 +979,16 @@
         gap: 20px;
         flex-direction: column;
         align-items: center;
+    }
+
+    /*Scroll To Top Button*/
+    .button-scroll-top {
+        bottom: 30px;
+    }
+
+    .button-scroll-top__image {
+        width: 18px;
+        height: 18px;
     }
 }
 
