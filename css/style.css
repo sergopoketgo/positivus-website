@@ -15,7 +15,7 @@ html, body {
     top: 0;
     left: 0;
     z-index: 99;
-    padding: 15px 0;
+    padding: 10px 0;
     background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
     transition: background-color .7s;
