@@ -9,20 +9,38 @@ function translateX(object, value) {
     object.style.transform = `translateX(${-value}px)`;
 }
 
-const logotypeWidth = logotypes[0].clientWidth;
-const logotypesTrackWidth = logotypesTrack.scrollWidth;
-const logotypesTrackGap = (logotypesTrackWidth - logotypeWidth*logotypes.length)/(logotypes.length-1);
+let logotypesTrackClone;
+function createLogotypesTrackCloneNode() {
+    logotypesTrackClone = logotypesTrack.cloneNode(true);
+    logotypesTrackClone.classList.add("section-main__logotypes-track_clone", "w-100");
+    logotypesTrackClone.removeAttribute("id");
+}
+
+let logotypeWidth = logotypes[0].clientWidth;
+let logotypesTrackWidth = logotypesTrack.scrollWidth;
+let logotypesTrackGap = (logotypesTrackWidth - logotypeWidth*logotypes.length)/(logotypes.length-1);
 
 // Create Logotypes Track Clone
-const logotypesTrackClone = logotypesTrack.cloneNode(true);
-logotypesTrackClone.classList.add("section-main__logotypes-track_clone", "w-100");
-logotypesTrackClone.removeAttribute("id");
+createLogotypesTrackCloneNode();
 let logotypesCloneOffset = -logotypesTrackWidth;
 translateX(logotypesTrackClone, logotypesCloneOffset);
 logotypesContainer.append(logotypesTrackClone);
 
 let logotypesOffset = 0;
 setInterval(() => {
+    if (resized) {
+        logotypesTrackClone.remove();
+
+        createLogotypesTrackCloneNode();
+
+        // Clone Position
+        logotypesCloneOffset = logotypesOffset - logotypesTrackWidth - logotypesTrackGap;
+        translateX(logotypesTrackClone, logotypesCloneOffset);
+
+        logotypesContainer.append(logotypesTrackClone);
+        resized = false;
+    }
+
     if (logotypesOffset === -logotypesTrackWidth)
         logotypesTrack.style.transition = null;
 
@@ -53,3 +71,14 @@ setInterval(() => {
         }
     }
 }, 25);
+
+let resized = false;
+window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1024) {
+        resized = true;
+
+        logotypeWidth = logotypes[0].clientWidth;
+        logotypesTrackWidth = logotypesTrack.scrollWidth;
+        logotypesTrackGap = (logotypesTrackWidth - logotypeWidth*logotypes.length)/(logotypes.length-1);
+    }
+})
