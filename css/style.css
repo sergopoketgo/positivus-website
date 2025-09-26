@@ -1,7 +1,3 @@
-html, body {
-    scroll-behavior: smooth;
-}
-
 /*Header*/
 .header {
     position: absolute;
@@ -19,6 +15,7 @@ html, body {
     background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
     transition: background-color .7s;
+    transform: translateY(0);
 }
 
 .header_scroll.transition {
@@ -101,15 +98,14 @@ html, body {
     overflow: hidden;
 }
 
-.section-main__logotypes-track {
-    transition: .05s;
+.section-main__logotypes-row {
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
-.section-main__logotypes-track_clone {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+/*.section-main__logotypes-track {*/
+/*    transition: .05s;*/
+/*}*/
 
 .section-main__logotype {
     filter: grayscale(1);
@@ -677,6 +673,20 @@ html, body {
     .section-main__image {
         width: 50vw;
         height: auto;
+    }
+
+    .section-main__logotypes-container {  /*Logotypes*/
+        width: calc(100% + 40px);
+        margin: 0 -20px;
+    }
+
+    .section-main__logotypes-track {
+        gap: 15px;
+    }
+
+    .section-main__logotypes-row {
+        justify-content: unset;
+        gap: 20px;
     }
 
     /*Section Services*/

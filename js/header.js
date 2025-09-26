@@ -1,43 +1,38 @@
 const header = document.getElementById("header");
 
 function hideHeader() {
-    header.style.top = -header.offsetHeight + "px";
+    header.style.transform = `translateY(-${header.offsetHeight}px)`;
 }
 function showHeader() {
-    header.style.top = null;
+    header.style.transform = 'translateY(0)';
 }
 
-let lastScroll = 0;
+let lastScroll = scrollPosition();
+let lastTrigger = scrollPosition();
+const threshold = 50;
+
 function updateHeaderState() {
-    if (scrollPosition() > header.offsetHeight && scrollPosition() > 50) {
-        if (scrollPosition() > lastScroll) {
-            // Scroll Down
+    const currentScroll = scrollPosition();
+
+    if (currentScroll > header.offsetHeight) {
+        if (currentScroll > lastScroll && currentScroll - lastTrigger >= threshold) {
             hideHeader();
-        } else {
-            // Scroll Up
+            lastTrigger = currentScroll;
+        } else if (currentScroll < lastScroll && lastTrigger - currentScroll >= threshold) {
             header.classList.add("header_scroll");
             showHeader();
+            lastTrigger = currentScroll;
         }
-    } else if (scrollPosition() <= headerTop) {
+    } else if (currentScroll <= headerTop) {
         header.classList.remove("header_scroll");
-        // header.classList.remove("transition");
-        // requestAnimationFrame(() => {
-        //     header.classList.remove("header_scroll");
-        //     header.classList.add("transition");
-        // });
+        showHeader();
+        lastTrigger = currentScroll;
     }
 
-    lastScroll = scrollPosition();
+    lastScroll = currentScroll;
 }
 
 const headerTop = parseInt(getComputedStyle(header).top);
 updateHeaderState();
 
-header.classList.add("transition");
 window.addEventListener("scroll", updateHeaderState);
-
-// header.classList.toggle("header_scroll", scrollPosition() > 45);
-// if (scrollPosition() >= 45)
-//     header.style.top = -header.offsetHeight + "px";
-// else
-//     header.style.top = "0";
