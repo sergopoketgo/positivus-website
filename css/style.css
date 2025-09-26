@@ -6,32 +6,25 @@ html, body {
 .header {
     position: absolute;
     top: 30px;
-    left: 0;
-    padding: 15px 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: var(--container-width);
+    padding: 10px 20px;
 }
 
-.header_scroll {
+.header_fixed {
     position: fixed;
+    z-index: 999;
     top: 0;
-    left: 0;
-    z-index: 99;
-    padding: 10px 0;
     background-color: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
     transition: background-color .7s;
 }
 
-.header_scroll.transition {
-    transition: all var(--default-trans), background-color .7s;
-}
-
-.header_scroll:hover {
+.header_fixed:hover {
     background-color: var(--white);
-}
-
-.header__wrapper {
-    max-width: var(--container-width);
-    padding: 0 20px;
 }
 
 .header__nav-item:hover {
