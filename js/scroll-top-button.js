@@ -31,7 +31,7 @@ const body = document.getElementById("body");
 // Appear||Hide Scroll To Top Button
 let activeTimeout;
 function setToTopBtnState() {
-    if (scrollPosition() >= window.innerHeight && toTopBtn.classList.contains("opacity-hidden")) {
+    if (window.scrollY >= window.innerHeight && toTopBtn.classList.contains("opacity-hidden")) {
         // Show Button
         toTopBtn.classList.remove("opacity-hidden");
         toTopBtn.classList.add("active");
@@ -41,7 +41,7 @@ function setToTopBtnState() {
             toTopBtn.classList.remove("active");
         }, TO_TOP_BUTTON_ACTIVE_DURATION);
 
-    } else if (scrollPosition() < window.innerHeight && !toTopBtn.classList.contains("opacity-hidden")) {
+    } else if (window.scrollY < window.innerHeight && !toTopBtn.classList.contains("opacity-hidden")) {
         // Hide Button
         toTopBtn.classList.add("opacity-hidden");
     }
